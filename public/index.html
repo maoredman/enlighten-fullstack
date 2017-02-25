@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="confusionApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+
+    <title>智慧路燈 Enlighten</title>
+        <!-- Bootstrap -->
+<link rel="stylesheet" href="styles/main-6955cb7e84.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+</head>
+
+<body>
+
+    <div ui-view="header"></div>
+    <div ui-view="content"></div>
+
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-6">
+            <div id="map"></div> <!-- Google Map here -->
+        </div>
+        <div class="col-xs-3">
+        </div>
+
+    </div>
+
+    <script>
+      function initMap() {
+        var uluru = {lat: 25.0419344, lng: 121.5321546};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker1 = new google.maps.Marker({
+          position: {lat: 25.042129, lng: 121.533045},
+          map: map,
+          title: "Hello World!",
+          label: "",
+          animation: google.maps.Animation.DROP
+        });
+        var marker2 = new google.maps.Marker({
+          position: {lat: 25.038502, lng: 121.532538},
+          map: map,
+          title: "Hello World!",
+          label: "",
+          animation: google.maps.Animation.DROP
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvopLzlR4eq53rjuc5saRYaPkTZjZMCdE&callback=initMap">
+    </script>
+
+    <div ui-view="footer"></div>
+
+    <script src="scripts/main-3726213ef7.js"></script>
+
+    <!--<script src="scripts/main-2f5297dd5c.js"></script>-->
+
+</body>
+
+</html>
